@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using library_management.Models;
 
 namespace library_management.Repositories
 {
-    interface IBorrowRecordRepository
+    public interface IBorrowRecordRepository
     {
+        List<BorrowRecord> GetAll();
+        void Add(BorrowRecord record);
+        void Update(BorrowRecord record);
     }
 }
