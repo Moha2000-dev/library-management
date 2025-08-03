@@ -3,6 +3,8 @@ using library_management;
 using library_management.Models;
 using library_management.Repositories;
 using library_management.Services;
+using library_management.Helpers;
+
 
 class Program
 {
@@ -51,6 +53,9 @@ class Program
                     var member = new Member { Id = memberId, Name = memberName };
                     library.RegisterMember(member);
                     Console.WriteLine(" Member registered successfully.");
+                    library.RegisterMember(member);
+                    MemberFileHelper.Save(context.Members);
+
                     break;
 
                 case "2":
@@ -64,6 +69,9 @@ class Program
                     var book = new Book { Id = bookId, Title = title, Author = author };
                     library.AddBook(book);
                     Console.WriteLine(" Book added successfully.");
+                    library.AddBook(book);
+                    BookFileHelper.Save(context.Books);
+
                     break;
 
                 case "3":
@@ -73,6 +81,10 @@ class Program
                     Console.Write("Enter Member ID: ");
                     string borrowerId = Console.ReadLine();
                     library.BorrowBook(borrowBookId, borrowerId);
+                   
+                    BookFileHelper.Save(context.Books);
+                    BorrowRecordFileHelper.Save(context.BorrowRecords);
+
                     break;
 
                 case "4":
@@ -82,6 +94,10 @@ class Program
                     Console.Write("Enter Member ID: ");
                     string returnerId = Console.ReadLine();
                     library.ReturnBook(returnBookId, returnerId);
+                    
+                    BookFileHelper.Save(context.Books);
+                    BorrowRecordFileHelper.Save(context.BorrowRecords);
+
                     break;
 
                 case "5":
