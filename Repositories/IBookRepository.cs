@@ -1,18 +1,13 @@
-﻿using library_management.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using library_management.Models;
 
 namespace library_management.Repositories
 {
-    interface IBookRepository
+    public interface IBookRepository 
     {
         List<Book> GetAll();
         Book GetById(string id);
         void Add(Book book);
         void Update(Book book);
-
     }
 }
