@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace library_management.Models
 {
-    class BorrowRecord
+    public class BorrowRecord
     {
         public string Id { get; set; }
         public string MemberId { get; set; }
