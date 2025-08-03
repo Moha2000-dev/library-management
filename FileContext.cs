@@ -1,17 +1,10 @@
-﻿using library_management.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using library_management.Models;
+using library_management.Helpers;
 
-// FileContext.cs
-namespace library_management
+public class FileContext
 {
-    public class FileContext
-    {
-        public List<Book> Books { get; set; } = new();
-        public List<Member> Members { get; set; } = new();
-        public List<BorrowRecord> BorrowRecords { get; set; } = new();
-    }
+    public List<Book> Books { get; set; } = BookFileHelper.Load();
+    public List<Member> Members { get; set; } = MemberFileHelper.Load();
+    public List<BorrowRecord> BorrowRecords { get; set; } = BorrowRecordFileHelper.Load();
 }
