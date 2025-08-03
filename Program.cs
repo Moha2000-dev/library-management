@@ -17,17 +17,14 @@ class Program
         while (true)
         {
             Console.Clear();
-
             Console.ResetColor();
-
-            //  Title
+            //Title
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("╔════════════════════════════════════════════════════════════╗");
             Console.WriteLine("║                     YANQULE LIBRARY                        ║");
             Console.WriteLine("╚════════════════════════════════════════════════════════════╝");
             Console.ResetColor();
-
-            //  Menu
+            //Menu
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("╔══════════════════════════════════════════════╗");
             Console.WriteLine("║               MAIN MENU                      ║");
@@ -40,12 +37,9 @@ class Program
             Console.WriteLine("║ 6. Exit                                      ║");
             Console.WriteLine("╚══════════════════════════════════════════════╝");
             Console.ResetColor();
-
             Console.Write("👉 Choose an option (1–6): ");
             string choice = Console.ReadLine();
-
             Console.Clear();
-
             switch (choice)
             {
                 case "1":
