@@ -8,5 +8,7 @@ namespace library_management.Models
 {
     class Member
     {
+        public string Id { get; set; }
+        public string Name { get; set; }
     }
 }

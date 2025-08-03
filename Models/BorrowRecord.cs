@@ -8,5 +8,10 @@ namespace library_management.Models
 {
     class BorrowRecord
     {
+        public string Id { get; set; }
+        public string MemberId { get; set; }
+        public string BookId { get; set; }
+        public DateTime BorrowDate { get; set; }
+        public DateTime? ReturnDate { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using library_management.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,8 @@ namespace library_management
 {
     class FileContext
     {
+        public List<Book> Books = new();
+        public List<Member> Members = new();
+        public List<BorrowRecord> BorrowRecords = new();
     }
 }
