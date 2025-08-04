@@ -33,5 +33,19 @@ namespace library_management.Repositories
             if (index != -1)
                 _context.Books[index] = book;
         }
+
+        public void ShowAvailableBooks()
+        {
+            var available = _context.Books.Where(b => b.IsAvailable).ToList();
+
+            Console.WriteLine(" Available Books:");
+            if (available.Count == 0)
+                Console.WriteLine(" No books available.");
+            else
+                foreach (var b in available)
+                    Console.WriteLine($"- {b.Id}: {b.Title} by {b.Author}");
+        }
+
+
     }
 }

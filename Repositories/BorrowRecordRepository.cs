@@ -23,5 +23,18 @@ namespace library_management.Repositories
             if (index != -1)
                 _context.BorrowRecords[index] = record;
         }
+        public void ShowBorrowedBooks()
+        {
+            var borrowed = _context.Books.Where(b => !b.IsAvailable).ToList();
+
+            Console.WriteLine(" Borrowed Books:");
+            if (borrowed.Count == 0)
+                Console.WriteLine(" No borrowed books.");
+            else
+                foreach (var b in borrowed)
+                    Console.WriteLine($"- {b.Id}: {b.Title} by {b.Author}");
+        }
+
+
     }
 }

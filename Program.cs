@@ -10,23 +10,21 @@ class Program
 {
     static void Main()
     {
-        var context = new FileContext();
-        var bookRepo = new BookRepository(context);
-        var memberRepo = new MemberRepository(context);
-        var recordRepo = new BorrowRecordRepository(context);
+        var context = new FileContext();// Initialize the file context
+        var bookRepo = new BookRepository(context); // Initialize the book repository
+        var memberRepo = new MemberRepository(context); // Initialize the member repository
+        var recordRepo = new BorrowRecordRepository(context); // Initialize the borrow record repository
         ILibraryService library = new LibraryService(bookRepo, memberRepo, recordRepo);
 
         while (true)
         {
             Console.Clear();
             Console.ResetColor();
-            //Title
-            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("╔════════════════════════════════════════════════════════════╗");
             Console.WriteLine("║                     YANQULE LIBRARY                        ║");
             Console.WriteLine("╚════════════════════════════════════════════════════════════╝");
             Console.ResetColor();
-            //Menu
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("╔══════════════════════════════════════════════╗");
             Console.WriteLine("║               MAIN MENU                      ║");
@@ -39,7 +37,7 @@ class Program
             Console.WriteLine("║ 6. Exit                                      ║");
             Console.WriteLine("╚══════════════════════════════════════════════╝");
             Console.ResetColor();
-            Console.Write("👉 Choose an option (1–6): ");
+            Console.Write(" Choose an option (1–6): ");
             string choice = Console.ReadLine();
             Console.Clear();
             switch (choice)
@@ -75,6 +73,7 @@ class Program
                     break;
 
                 case "3":
+                    bookRepo.ShowAvailableBooks();
                     Console.WriteLine(" Borrow Book");
                     Console.Write("Enter Book ID: ");
                     string borrowBookId = Console.ReadLine();
@@ -88,6 +87,7 @@ class Program
                     break;
 
                 case "4":
+                    recordRepo.ShowBorrowedBooks();
                     Console.WriteLine(" Return Book");
                     Console.Write("Enter Book ID: ");
                     string returnBookId = Console.ReadLine();
