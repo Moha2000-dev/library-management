@@ -5,6 +5,7 @@ using library_management.Repositories;
 
 namespace library_management.Services
 {
+    
     public class LibraryService : ILibraryService
     {
         private readonly IBookRepository _bookRepo;
@@ -17,7 +18,7 @@ namespace library_management.Services
             _memberRepo = memberRepo;
             _recordRepo = recordRepo;
         }
-
+        /// Borrow a book from the library
         public void BorrowBook(string bookId, string memberId)
         {
             var book = _bookRepo.GetById(bookId);
@@ -40,7 +41,7 @@ namespace library_management.Services
 
             _recordRepo.Add(record);
         }
-
+        /// Return a borrowed book
         public void ReturnBook(string bookId, string memberId)
         {
             var record = _recordRepo.GetAll()
@@ -62,7 +63,7 @@ namespace library_management.Services
                 _bookRepo.Update(book);
             }
         }
-
+        /// View all available books in the library
         public void RegisterMember(Member member)
         {
             _memberRepo.Add(member);

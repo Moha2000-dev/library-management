@@ -4,7 +4,8 @@ using library_management.Helpers;
 
 public class FileContext
 {
-    public List<Book> Books { get; set; } = BookFileHelper.Load();
+    // This class serves as a context for file-based storage of library data.
+    public List<Book> Books { get; set; } = BookFileHelper.Load(); 
     public List<Member> Members { get; set; } = MemberFileHelper.Load();
     public List<BorrowRecord> BorrowRecords { get; set; } = BorrowRecordFileHelper.Load();
 }

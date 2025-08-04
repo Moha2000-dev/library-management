@@ -14,8 +14,10 @@ class Program
         var bookRepo = new BookRepository(context); // Initialize the book repository
         var memberRepo = new MemberRepository(context); // Initialize the member repository
         var recordRepo = new BorrowRecordRepository(context); // Initialize the borrow record repository
-        ILibraryService library = new LibraryService(bookRepo, memberRepo, recordRepo);
+        ILibraryService library = new LibraryService(bookRepo, memberRepo, recordRepo); // Initialize the library service
 
+
+        // Load existing data from files
         while (true)
         {
             Console.Clear();
@@ -42,6 +44,7 @@ class Program
             Console.Clear();
             switch (choice)
             {
+                 // Handle user input and perform actions based on the choice
                 case "1":
                     Console.WriteLine(" Register Member");
                     Console.Write("Enter Member ID: ");
@@ -55,7 +58,7 @@ class Program
                     MemberFileHelper.Save(context.Members);
 
                     break;
-
+                // Add a new book to the library
                 case "2":
                     Console.WriteLine(" Add Book");
                     Console.Write("Enter Book ID: ");
@@ -71,7 +74,7 @@ class Program
                     BookFileHelper.Save(context.Books);
 
                     break;
-
+                // Borrow a book from the library
                 case "3":
                     bookRepo.ShowAvailableBooks();
                     Console.WriteLine(" Borrow Book");
@@ -85,7 +88,7 @@ class Program
                     BorrowRecordFileHelper.Save(context.BorrowRecords);
 
                     break;
-
+                // Return a borrowed book to the library
                 case "4":
                     recordRepo.ShowBorrowedBooks();
                     Console.WriteLine(" Return Book");
@@ -99,7 +102,7 @@ class Program
                     BorrowRecordFileHelper.Save(context.BorrowRecords);
 
                     break;
-
+                // View all books in the library
                 case "5":
                     Console.WriteLine(" List of Books:");
                     foreach (var b in bookRepo.GetAll())
@@ -107,7 +110,7 @@ class Program
                         Console.WriteLine($"- {b.Id}: {b.Title} by {b.Author} — {(b.IsAvailable ? "Available" : "Borrowed")}");
                     }
                     break;
-
+                // Exit the application
                 case "6":
                     Console.WriteLine(" Goodbye!");
                     return;
@@ -116,7 +119,7 @@ class Program
                     Console.WriteLine("Invalid option. Please try again.");
                     break;
             }
-
+            // Wait for user input before returning to the menu
             Console.WriteLine("\n Press any key to return to menu...");
             Console.ReadKey();
         }

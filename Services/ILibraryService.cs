@@ -9,13 +9,13 @@ namespace library_management.Services
 {
 
    
-
+    
     public interface ILibraryService
     {
-        void BorrowBook(string bookId, string memberId);
-        void ReturnBook(string bookId, string memberId);
-        void RegisterMember(Member member);
-        void AddBook(Book book);
+        void BorrowBook(string bookId, string memberId);// Borrow a book from the library
+        void ReturnBook(string bookId, string memberId);// Return a borrowed book
+        void RegisterMember(Member member);// Register a new member in the library
+        void AddBook(Book book);// Add a new book to the library
     }
 
 }
