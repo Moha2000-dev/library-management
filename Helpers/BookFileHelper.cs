@@ -5,7 +5,7 @@ using library_management.Models;
 
 namespace library_management.Helpers
 {
-    public static class BookFileHelper
+    public static class BookFileHelper // This class handles the file operations for storing and retrieving book data.
     {
         private static readonly string filePath = "books.txt";
 
@@ -15,7 +15,7 @@ namespace library_management.Helpers
             File.WriteAllLines(filePath, lines);
         }
 
-        public static List<Book> Load()
+        public static List<Book> Load() // This method loads book data from a file and returns a list of Book objects.
         {
             if (!File.Exists(filePath)) return new();
             return File.ReadAllLines(filePath)

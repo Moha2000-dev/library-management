@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace library_management.Models
 {
-    public class BorrowRecord
+    public class BorrowRecord // This class represents a record of a book borrowed by a member in the library.
     {
         public string Id { get; set; }
         public string MemberId { get; set; }

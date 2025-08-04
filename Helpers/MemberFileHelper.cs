@@ -5,7 +5,7 @@ using library_management.Models;
 
 namespace library_management.Helpers
 {
-    public static class MemberFileHelper
+    public static class MemberFileHelper // This class handles saving and loading member data to and from a file.
     {
         private static readonly string filePath = "members.txt";
 
@@ -15,7 +15,7 @@ namespace library_management.Helpers
             File.WriteAllLines(filePath, lines);
         }
 
-        public static List<Member> Load()
+        public static List<Member> Load() // This method loads member data from a file and returns a list of Member objects.
         {
             if (!File.Exists(filePath)) return new();
             return File.ReadAllLines(filePath)

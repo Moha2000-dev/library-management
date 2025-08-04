@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace library_management.Models
 {
-    public class Book
+    public class Book // Represents a book in the library system.
     {
 
         public string Id { get; set; }

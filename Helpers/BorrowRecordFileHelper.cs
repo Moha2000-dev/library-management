@@ -6,7 +6,7 @@ using library_management.Models;
 
 namespace library_management.Helpers
 {
-    public static class BorrowRecordFileHelper
+    public static class BorrowRecordFileHelper // This class handles saving and loading borrow records to and from a file.
     {
         private static readonly string filePath = "records.txt";
 
@@ -17,7 +17,7 @@ namespace library_management.Helpers
             File.WriteAllLines(filePath, lines);
         }
 
-        public static List<BorrowRecord> Load()
+        public static List<BorrowRecord> Load() // This method loads borrow records from a file and returns a list of BorrowRecord objects.
         {
             if (!File.Exists(filePath)) return new();
             return File.ReadAllLines(filePath)
